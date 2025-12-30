@@ -18,7 +18,7 @@ Docker Composeを使用したWireGuard VPNサーバー。DuckDNSで動的IPに�
    - 名前: 任意（例: `wireguard`）
    - リージョン: `asia-northeast1`（東京）
    - マシンタイプ: `e2-micro`
-   - ブートディスク: `Ubuntu 22.04 LTS`、10GB
+   - ブートディスク: `Debian GNU/Linux 12`（デフォルト）
    - ネットワークタグ: `wireguard`
 4. [作成] をクリック
 
