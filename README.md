@@ -135,4 +135,4 @@ docker compose down
 GCEのVPCネットワークはデフォルトMTUが1460のため、クライアントのMTUがデフォルトの1420では通信効率が悪化する。
 
 クラアントの設定ファイル生成時にMTUを設定するため、
-`templates/peer.conf` に `MTU = 1380` を追加している。
+`defaults/peer.conf` に `MTU = 1380` を追加している。

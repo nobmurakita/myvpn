@@ -12,7 +12,7 @@ services:
       - PEERS=${PEERS}
     volumes:
       - ./config:/config
-      - ./templates/peer.conf:/config/templates/peer.conf:ro
+      - ./defaults/peer.conf:/defaults/peer.conf
       - /lib/modules:/lib/modules:ro
     ports:
       - 51820:51820/udp
