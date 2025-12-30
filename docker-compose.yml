@@ -1,0 +1,26 @@
+services:
+  wireguard:
+    image: linuxserver/wireguard:latest
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - SERVERURL=${DUCKDNS_SUBDOMAIN}.duckdns.org
+      - PEERS=${PEERS}
+    volumes:
+      - ./config:/config
+      - /lib/modules:/lib/modules:ro
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
+
+  duckdns:
+    image: linuxserver/duckdns:latest
+    container_name: duckdns
+    environment:
+      - SUBDOMAINS=${DUCKDNS_SUBDOMAIN}
+      - TOKEN=${DUCKDNS_TOKEN}
+    restart: unless-stopped
