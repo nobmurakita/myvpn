@@ -61,11 +61,13 @@ cd myvpn
 cp .env.example .env
 ```
 
-`.env` を編集:
+`.env` を編集（`PUID`/`PGID` は `id` コマンドで確認）:
 ```
 DUCKDNS_SUBDOMAIN=myvpn
 DUCKDNS_TOKEN=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 PEERS=client1
+PUID=1000
+PGID=1000
 ```
 
 ### 7. 起動

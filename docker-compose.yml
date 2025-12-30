@@ -6,8 +6,8 @@ services:
       - NET_ADMIN
       - SYS_MODULE
     environment:
-      - PUID=${PUID:-1000}
-      - PGID=${PGID:-1000}
+      - PUID=${PUID}
+      - PGID=${PGID}
       - SERVERURL=${DUCKDNS_SUBDOMAIN}.duckdns.org
       - PEERS=${PEERS}
     volumes:
