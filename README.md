@@ -68,6 +68,7 @@ DUCKDNS_TOKEN=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 PEERS=client1
 PUID=1000
 PGID=1000
+MTU=1392
 ```
 
 ### 7. 起動
@@ -129,3 +130,16 @@ docker compose logs -f duckdns
 ```bash
 docker compose down
 ```
+
+## MTUについて
+
+GCEのVPCネットワークはデフォルトMTUが1460のため、WireGuardのMTUは1392に設定している。
+
+VPN有効時に速度が極端に遅い場合（特にダウンロード）はMTUの調整が必要。
+
+調整方法：
+1. クライアントの設定ファイルの`[Interface]`セクションに`MTU = 1280`を追加
+2. 速度が改善したらMTU値を上げていき、速度が落ちる直前の値が最適値
+3. `.env`の`MTU`を更新してコンテナを再作成
+
+変更後は既存のクライアント設定も再取得する。

@@ -10,6 +10,7 @@ services:
       - PGID=${PGID}
       - SERVERURL=${DUCKDNS_SUBDOMAIN}.duckdns.org
       - PEERS=${PEERS}
+      - INTERNAL_MTU=${MTU}
     volumes:
       - ./config:/config
       - /lib/modules:/lib/modules:ro
